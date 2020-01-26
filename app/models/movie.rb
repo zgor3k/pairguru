@@ -14,4 +14,8 @@
 
 class Movie < ApplicationRecord
   belongs_to :genre
+
+  def by_api
+    @by_api ||= MovieServices::ApiPerformer.new(self)
+  end
 end
