@@ -1,13 +1,14 @@
 source "https://rubygems.org"
 
 gem "rails", "5.2"
-
 gem "annotate"
 gem "bootstrap-sass"
 gem "devise"
 gem "draper"
 gem "haml-rails"
 gem "jquery-rails"
+gem "kaminari"
+gem "rest-client"
 gem "sass-rails"
 gem "sqlite3"
 gem "uglifier"
