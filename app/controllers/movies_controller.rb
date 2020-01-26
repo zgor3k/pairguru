@@ -18,8 +18,8 @@ class MoviesController < ApplicationController
   end
 
   def export
-    file_path = "tmp/movies.csv"
-    MovieServices::Exporter.new.call(current_user, file_path)
-    redirect_to root_path, notice: "Movies exported"
+    MovieExporterJob.perform_later(current_user)
+
+    redirect_to root_path, notice: "Soon you will receive an email with exported movies"
   end
 end
