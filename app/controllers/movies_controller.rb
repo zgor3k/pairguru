@@ -11,8 +11,10 @@ class MoviesController < ApplicationController
 
   def send_info
     @movie = Movie.find(params[:id])
-    MovieInfoMailer.send_info(current_user, @movie).deliver_now
-    redirect_back(fallback_location: root_path, notice: "Email sent with movie info")
+    MovieInfoMailer.send_info(current_user, @movie).deliver_later
+
+    redirect_back(fallback_location: root_path,
+                  notice: "Soon you will receive an email with movie info")
   end
 
   def export
