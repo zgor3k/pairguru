@@ -14,6 +14,7 @@
 
 class Movie < ApplicationRecord
   belongs_to :genre
+  validates_with TitleBracketsValidator
 
   def by_api
     @by_api ||= MovieServices::ApiPerformer.new(self)
