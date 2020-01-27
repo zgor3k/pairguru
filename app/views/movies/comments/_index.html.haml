@@ -1,0 +1,22 @@
+%h3 Comments
+%hr
+.row
+  .col-sm-12
+    = render "movies/comments/form", movie: movie
+%hr
+- movie.comments.order("id DESC").each do |comment|
+  .row
+    .col-sm-12
+      .row
+        .col-sm-6.small
+          = comment.user.email
+          |
+          = comment.created_at.strftime("%F %T")
+        - if commented_by_current_user?(comment)
+          .col-sm-6.small.text-right
+            = link_to "Delete", movie_comment_path(movie, comment),
+                                method: :delete,
+                                data: { confirm: "Are you sure?" }
+      .row
+        .col-sm-12= comment.text
+  %hr

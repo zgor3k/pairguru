@@ -1,0 +1,8 @@
+%h4 Add new comment
+
+= form_for :comment, url: movie_comments_path(movie), method: :post do |f|
+  = f.hidden_field :movie_id, value: movie.id
+  = f.hidden_field :user_id, value: current_user.id
+  = f.text_area :text, style: "width: 100%"
+  .text-right
+    = f.submit "Save comment", class: "btn btn-primary btn-sm"
