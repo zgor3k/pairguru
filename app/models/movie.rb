@@ -13,7 +13,9 @@
 #
 
 class Movie < ApplicationRecord
+  has_many :comments, dependent: :destroy
   belongs_to :genre
+
   validates_with TitleBracketsValidator
 
   def by_api

@@ -10,9 +10,12 @@ Rails.application.routes.draw do
   end
 
   resources :movies, only: [:index, :show] do
+    resources :comments, only: [:create, :destroy]
+
     member do
       get :send_info
     end
+
     collection do
       get :export
     end
