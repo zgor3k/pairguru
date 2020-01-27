@@ -10,4 +10,9 @@
     .jumbotron
       = @movie.plot
     - if user_signed_in?
-      %p= link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'
+      .row
+        .col-sm-12.col-md-8
+          %p= link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'
+      .row
+        .col-sm-12.col-md-12
+          = render 'movies/comments/index', movie: @movie
