@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :top_commenters, only: [:index]
+
   resources :movies, only: [:index, :show] do
     resources :comments, only: [:create, :destroy]
 
