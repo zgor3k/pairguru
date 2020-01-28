@@ -14,7 +14,7 @@
           = comment.created_at.strftime("%F %T")
         - if commented_by_current_user?(comment)
           .col-sm-6.small.text-right
-            = link_to "Delete", movie_comments_path(movie, comment),
+            = link_to "Delete", movie_comment_path(movie, comment),
                                 method: :delete,
                                 data: { confirm: "Are you sure?" }
       .row
