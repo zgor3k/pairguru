@@ -9,9 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:top_commenters] do
-    get :top_commenters, on: :collection
-  end
+  resources :top_commenters, only: [:index]
 
   resources :movies, only: [:index, :show] do
     resource :comments, only: [:create, :destroy]
